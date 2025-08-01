@@ -2,76 +2,74 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Register Page</title>
+    <title>Login Page</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: #f3f3f3;
+            background: #eef1f5;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
         }
-        .register-form {
+        .login-form {
             background: white;
             padding: 30px;
             border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
             width: 320px;
         }
-        .register-form h2 {
+        .login-form h2 {
             text-align: center;
             margin-bottom: 20px;
         }
-        .register-form input[type="text"],
-        .register-form input[type="email"],
-        .register-form input[type="password"] {
+        .login-form input[type="text"],
+        .login-form input[type="password"] {
             width: 100%;
             padding: 10px;
             margin: 10px 0;
             border: 1px solid #ccc;
             border-radius: 8px;
         }
-        .register-form input[type="submit"] {
+        .login-form input[type="submit"] {
             width: 100%;
             padding: 10px;
-            background: #4CAF50;
+            background: #007BFF;
             color: white;
             border: none;
             border-radius: 8px;
             cursor: pointer;
         }
-        .register-form input[type="submit"]:hover {
-            background: #45a049;
+        .login-form input[type="submit"]:hover {
+            background: #0056b3;
         }
         .error {
             color: red;
             text-align: center;
             margin-top: 10px;
         }
-        .login-link {
+        .register-link {
             text-align: center;
             margin-top: 15px;
         }
     </style>
 </head>
 <body>
-    <form method="POST" class="register-form">
+    <form method="POST" class="login-form">
         {% csrf_token %}
-        <h2>Register</h2>
+        <h2>Login</h2>
 
         <input type="text" name="username" placeholder="Username" required>
-        <input type="email" name="email" placeholder="Email" required>
         <input type="password" name="password" placeholder="Password" required>
 
-        <input type="submit" value="Register">
+        <input type="submit" value="Login">
 
         {% if error %}
             <div class="error">{{ error }}</div>
         {% endif %}
 
-        <div class="login-link">
-            Already have an account? <a href="{% url 'sigin_page' %}">Login</a>
+        <div class="register-link">
+            Don't have an account? <a href="{% url 'register' %}">Register</a>
         </div>
     </form>
 </body>
